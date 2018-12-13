@@ -100,3 +100,16 @@
    本地 IP : 8081 
 
    配置完成后再次运行  `react-native run-android`
+
+3. 模拟器报错 `**unable to load script from assets ‘index.android bundle’ ,make sure your bundle is packaged correctly or youu’re runing a packager server**`
+
+   解决办法 
+   1，在 `android/app/src/main` 目录下创建一个 assets空文件夹
+
+   `mkdir android/app/src/main/assets`
+
+   2、在项目根目录运行
+
+   `react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/`
+
+   3，重新`react-native run-android`
